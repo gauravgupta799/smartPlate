@@ -1,0 +1,71 @@
+@use "../abstract/functions" as *;
+@use "../abstract/breakpoints" as *;
+
+$full-width:100%;
+
+// ------ Page Container Starts -----------
+.page-container{
+    max-width: none;
+    margin: 0 auto;
+    @include breakpoint-sm{
+        margin: 0 rem(20);
+    }
+    @include breakpoint-md{
+        max-width: calc($full-width * 0.9055);
+        margin: 0 rem(20);
+    }
+    @include breakpoint-lg{
+        max-width:calc($full-width*0.9093);
+    }
+    @include breakpoint-xl{
+        max-width:calc($full-width*0.9167);
+    }
+    @include breakpoint-xxl{
+        max-width:calc($full-width*0.9163);
+    }
+}
+
+
+
+// page container with no margin on left
+.page-container--ml{
+    @include breakpoint-md{
+        max-width:calc($full-width*0.958);
+        margin-left:auto;
+        margin-right:0;
+    }
+  
+    @include breakpoint-lg{
+        max-width:calc($full-width*0.93775);
+    }
+
+    @include breakpoint-xl{
+        max-width:calc($full-width*0.9375);
+    }
+
+    @include breakpoint-xxl{
+        max-width:calc($full-width*0.8277);
+    }
+}
+
+
+// page container with no margin on right
+.page-container--mr{
+    @include breakpoint-md{
+        max-width:calc($full-width*0.9527);
+        margin-left:auto;
+        margin-right:0;
+    }
+  
+    @include breakpoint-lg{
+        max-width:calc($full-width*0.93775);
+    }
+
+    @include breakpoint-xl{
+        max-width:calc($full-width*0.9375);
+    }
+
+    @include breakpoint-xxl{
+        max-width:calc($full-width*0.8277);
+    }
+}

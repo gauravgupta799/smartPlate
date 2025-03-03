@@ -1,0 +1,137 @@
+@use '../abstract/colors' as *;
+@use '../abstract/breakpoints' as *; 
+@use '../abstract/functions' as *;
+@use "../abstract/fonts" as *;
+@use "../abstract/mixins" as *;
+
+.img-fluid{
+    max-width: 100%;
+    height: auto;
+}
+
+.img-fluid-full{
+    width: 100%;
+    height: auto;
+}
+
+.img-cover{
+    width: 100%;
+    object-fit: cover;
+}
+
+.txt-pimary{
+    color: $clr-primary;
+}
+
+.txt-secondary{
+    color:$clr-secondary;
+}
+
+.txt-white{
+    color:$clr-white;
+}
+
+.txt-black{
+    color:$clr-black;
+}
+
+.bg--primary{
+    background: $clr-primary;
+}
+
+.bg--secondary{
+    background: $clr-secondary;
+}
+
+.bg--tertiary{
+    background: $clr-tertiary;
+}
+
+.bg--quartery{
+    background: $clr-quartery;
+}
+
+.mx-auto{
+    margin: 0 auto;
+}
+
+.mx-auto-center{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mx-auto-left{
+    margin-left: 0;
+    text-align: left;
+}
+
+.mx-auto-right{
+    margin-right: 0;
+    text-align: right;
+}
+
+.txt-center{
+    text-align:center;
+}
+
+.txt-left{
+    text-align:left
+}
+
+.txt-right{
+    text-align:right;
+}
+
+.tt-initial{
+    text-transform: initial;
+}
+
+.uppercase{
+    text-transform:uppercase;
+}
+
+.capitalize{
+    text-transform: capitalize;
+}
+
+.lowercase{
+    text-transform: lowercase;
+}
+
+.underline{
+  text-decoration: underline;   
+}
+
+.overflow-hidden{
+    overflow:hidden;
+}
+
+.list-none{
+    list-style: none;
+}
+
+.list-pos-inside{
+    list-style-position: inside;
+}
+
+.list-pos-outside{
+    list-style-position:outside;
+}
+
+// ====== Dividers Start ========
+.divider{
+    position: relative;
+    height: 1px;
+    width: 100%;
+    background:$clr-black;
+
+    &--white{
+        background:$clr-white;
+    }
+    &--grey{
+        background:$clr-grey; 
+    }
+    &--secondary{
+        background: $clr-secondary;    
+    }
+}

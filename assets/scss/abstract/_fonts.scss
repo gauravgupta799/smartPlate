@@ -1,0 +1,53 @@
+// ?#iefix => Ensure better performance and faster rendering
+// ?font-display: swap: It’s a modern best practice — it prevents invisible text while fonts load.
+// font-display: swap; // For better performance and faster rendering 
+// It's a good practice to order font formats by file size and efficiency — from most modern and optimized to older and larger formats. This way, browsers pick the smallest, fastest-loading file they support first. Here’s the optimal order:
+// 1. WOFF2:- Smallest and most effiecient, supported by modern browsers (modern, compressed, and efficient)
+// 2. WOFF:- Still compressed and widely supported  (compressed, but less efficient than WOFF2)
+// 3. TTF(TrueType): Larger, Older Format, but still common.
+// 4. EOT(Embedded OpenType):- For older versions of browser (Internet Explorer), larger, and less supported.
+// 5. SVG: Rarely needed anymore - only for very old IOS versions.
+
+
+// ============= Verdana Bold ===========
+@font-face{
+    font-family:"Verdana-Bold";
+    src:url("../../../assets/fonts/verdana/verdana-bold.woff2") format("woff2"),
+        url("../../../assets/fonts/verdana/verdana-bold.woff") format("woff"),
+        url("../../../assets/fonts/verdana/verdana-bold.eot?#iefix") format("embedded-opentype"),
+        url("../../../assets/fonts/verdana/verdana-bold.ttf") format("truetype"),
+        url("../../../assets/fonts/verdana/verdana-bold.svg#Verdana-Bold") format("svg");
+     font-weight: 700;
+     font-style: normal;  
+     font-display: swap; 
+}
+
+// ============= Manrope Medium ===========
+@font-face{
+    font-family:"Manrope-Medium";
+    src:url("../../../assets/fonts/Manrope/Manrope-Medium.woff2") format("woff2"),
+        url("../../../assets/fonts/Manrope/Manrope-Bold.woff") format("woff"),
+        url("../../../assets/fonts/Manrope/Manrope-Medium.eot") format("embedded-opentype"),
+        url("../../../assets/fonts/Manrope/Manrope-Medium.ttf") format("truetype"),
+        url("../../../assets/fonts/Manrope/Manrope-Medium.svg#Manrope-Medium") format("svg");
+     font-weight: 500;
+     font-style: normal;  
+     font-display: swap;
+}
+
+// ============= Manrope Bold ===========
+@font-face{
+    font-family:"Manrope-Bold";
+    src:url("../../../assets/fonts/Manrope/Manrope-Bold.woff2") format("woff2"),
+        url("../../../assets/fonts/Manrope/Manrope-Bold.woff") format("woff"),
+        url("../../../assets/fonts/Manrope/Manrope-Bold.eot") format("embedded-opentype"),
+        url("../../../assets/fonts/Manrope/Manrope-Bold.ttf") format("truetype"),
+        url("../../../assets/fonts/Manrope/Manrope-Bold.svg#Manrope-Bold") format("svg");
+     font-weight: 700;
+     font-style: normal;  
+     font-display: swap;
+}
+
+$ff-primary:"Verdana-Bold", sans-serif;
+$ff-secondary:"Manrope-Medium", sans-serif;
+$ff-tertiary:"Manrope-Bold", sans-serif;

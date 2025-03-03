@@ -1,0 +1,121 @@
+/* 
+    Project:Smart Plate Nutrition
+    Version:1.0
+    Starting Date:28/02/2025
+    Designed & Developed By: YourHustler
+    Developer: Gaurav Gupta 
+    Last Changes: 
+    Primary use: Smart Plate Nutrition in Dallas provides nutrient deficiency testing to create an effective weight loss plan.
+*/
+
+@use "../abstract/colors" as *;
+@use "../abstract/fonts" as *;
+@use "../abstract/functions" as *;
+
+*{
+    padding: 0; margin: 0; box-sizing: border-box;
+}
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+
+html{
+    scroll-behavior: smooth;
+    // scroll-behavior: initial;
+}
+
+html, body{
+    min-height: 100%;
+    height: auto;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: $clr-white;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $clr-tertiary; 
+    border-radius: 10px;
+}
+
+::placeholder{
+    font-size: rem(16) !important;
+    font-family:$ff-secondary !important;
+    color:$clr-primary !important;
+}
+
+::selection{
+    color:$clr-white;
+    background-color: $clr-primary;
+}
+
+div, ul, ol, li,
+h1, h2, h3, h4, h5, h6, table, pre,
+form, fieldset, input, textarea, p blockquote, th, td{
+    margin: 0;
+    padding: 0;
+}
+
+h1 + p, h2 + p, h3 + p, h4 + p,  h5 + p, h6 + p{
+    margin-top:rem(24);
+}
+
+p + p{
+    margin-top: rem(16);
+}
+
+span + span {
+    margin-top: rem(10);
+}
+
+img{
+    display: block;
+    object-fit:cover;
+}
+
+a{
+    text-decoration: none;
+    color:$clr-pimary;
+}
+
+textarea{
+    resize: vertical;
+}
+
+address{
+    font-style: normal;
+    font-size: 100%;
+    display: inline;
+    color:$clr-primary;
+}
+
+input, textarea, select, button{
+    outline:none;
+    border:none;
+}
+
+button{
+    background: transparent;
+    font-family: $ff-secondary;
+}
+
+small{
+    display: flex;
+    font-size: rem(14);
+    line-height: 1.75;
+    margin-top: rem(16);
+}
+
+body{
+    font-weight: normal;
+    font-size: normal;
+    letter-spacing: normal;
+}
