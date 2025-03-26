@@ -1,0 +1,68 @@
+@use "../abstract/breakpoints" as *;
+@use "../abstract/colors" as *;
+@use "../abstract/fonts" as *;
+@use "../abstract/functions" as *;
+@use "../abstract/mixins" as *;
+
+
+.footer{
+    background-color: $clr-primary;
+    &__top{
+        padding-block:em(64);
+        @include breakpoint-lg{
+            padding-block:em(70);  
+        }
+        @include breakpoint-xl{
+            padding-block:em(74);  
+        }
+    }
+    &__row{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(rem(150), 1fr));
+        gap: 1em;
+        row-gap: rem(64);
+    }
+    &__title{
+        font-size: rem(20);
+        line-height: 1.8;
+        font-family: $ff-primary;
+        color:$clr-white;
+        text-transform: capitalize;
+    }
+    &__list{
+        list-style: none;
+    }
+    &__link{
+        color:$clr-white;
+        font-size: rem(14);
+        line-height: 1.85;
+        @include transition(color, 0.25s, ease);
+        &:hover{
+            color:$clr-secondary;
+            cursor: pointer;
+        }
+    }
+
+    &__bottom{
+        padding-block:em(48);
+    }
+
+    &__branding{
+        p{
+            font-size: rem(14);
+            max-width: 20rem;
+        }
+    }
+}
+
+a[href="https://yourhustler.com"]{
+    text-decoration: underline;
+    text-decoration-color: $clr-white;
+    -moz-text-decoration-color: $clr-white;
+    @include transition(all, 0.25s, ease);
+    &:hover{
+        color:$clr-secondary;
+        text-decoration-color: $clr-secondary;
+        -moz-text-decoration-color: $clr-secondary;
+    }
+}

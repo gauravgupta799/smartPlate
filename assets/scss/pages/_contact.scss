@@ -1,0 +1,73 @@
+@use "../abstract/breakpoints" as *;
+@use "../abstract/colors" as *;
+@use "../abstract/fonts" as *;
+@use "../abstract/functions" as *;
+@use "../abstract/mixins" as *;
+
+
+.location{
+    &__card{
+        padding-bottom:em(80);
+        border-bottom:1px solid $clr-gray;
+        @include breakpoint-sm{
+            border-bottom: none; 
+            padding-bottom:0;         
+        }
+        &--first{
+            @include breakpoint-sm{
+                border-right:1px solid  $clr-gray;
+            }
+        }
+    }
+
+    .info-title{
+        font-size: rem(20);
+        line-height: 1.2;
+        font-family: $ff-primary;
+        color:$clr-quartery;
+        margin-bottom:rem(16);
+    }
+
+    .info-text{
+            @include transition(all, 0.25s, ease);
+            text-decoration: underline;
+            text-decoration-color: $clr-primary;
+            &:hover{
+            text-decoration: underline;
+            text-decoration-color: $clr-secondary;
+            -moz-text-decoration-color: $clr-secondary;
+        }
+    }
+}
+
+.cta-link{
+    color:$clr-white;
+    text-decoration: underline;
+    text-decoration-color: $clr-white;
+    -moz-text-decoration-color: $clr-white;
+    text-align: center;
+    @include center("flex");
+    flex-direction: column;
+    span{
+        @include transition(color, 0.25s, ease);
+    }
+    // &:hover{
+    //     text-decoration-color: $clr-secondary;
+    //     -moz-text-decoration-color: $clr-secondary;
+    //     span{
+    //         color:$clr-secondary;
+    //     }
+    // }
+}
+
+.info-text,
+.cta-link{
+    &:hover{
+        text-decoration-color: $clr-secondary;
+        -moz-text-decoration-color: $clr-secondary;
+        color:$clr-secondary;
+        span{
+            color:$clr-secondary;
+        }
+    } 
+}

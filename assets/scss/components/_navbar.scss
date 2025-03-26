@@ -1,0 +1,280 @@
+@use "../abstract/breakpoints" as *;
+@use "../abstract/colors" as *;
+@use "../abstract/fonts" as *;
+@use "../abstract/functions" as *;
+@use "../abstract/mixins" as *;
+
+
+.navbar{
+    height: 100%;
+    &__list{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        // gap: clamp(1rem, 5vw, 3rem);
+        gap:rem(32);
+        @include breakpoint-xxl{
+            gap:rem(48);
+        }
+    }
+    &__item{
+        height: 100%;
+    }
+    &__link{
+        position: relative;
+        height: 100%;
+        color:$clr-white;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        @include transition(color, 0.25s, ease);
+        svg{
+            path{
+                @include transition(all, 0.25s, ease);
+            }
+        }
+        svg.chevron-icon {
+            transform: rotate(0);
+            transform-origin: center;
+            path{
+                fill:$clr-white;
+                stroke:$clr-white;
+            }
+        }
+        &.active,
+        &:hover{
+            color:$clr-secondary;
+            cursor: pointer;
+            svg.chevron-icon{
+                transform: rotate(180deg);
+                path{
+                    fill:$clr-secondary;
+                    stroke:$clr-secondary;
+                }
+            }
+            .svg-icon{
+                path{
+                    fill:$clr-secondary;
+                }
+            }
+        }
+    }
+}
+
+// ==== Submenu Style Starts =====
+.submenu{
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    background-color:$clr-tertiary;
+    padding: clamp(1.5em, 3vw , 3em);
+    @include radius(12px);
+    border:1px solid $clr-gray;
+    width: calc(40rem - 24px);
+    transform: translateY(10px);
+    height: 0px;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+
+    &__title{
+        font-size: rem(18);
+        font-family: $ff-primary;
+        line-height: 1.35;
+        color:$clr-primary;
+        margin-bottom: rem(20);
+        @include breakpoint-md{
+            margin-bottom: rem(24);
+            font-size: rem(20);
+        }
+        @include breakpoint-xxl{
+            font-size: rem(22);
+        }
+    }
+    &__list{
+        li{
+            margin-bottom: rem(16);
+        }
+    }
+    &__link{
+        font-size: rem(16);
+        line-height: 1.5;
+        font-family: $ff-secondary;
+        color:$clr-quartery;
+        text-decoration:underline;
+        text-decoration-color: $clr-quartery;
+        @include transition(all, 0.25s, ease);
+        &:hover{
+            color:$clr-secondary;
+            text-decoration-color: $clr-secondary;
+            -moz-text-decoration-color: $clr-secondary;
+        }
+    }
+}
+
+.submenu-parent{
+    position: relative;
+    &:hover{
+        .navbar__link{
+            color:$clr-secondary;
+            svg.chevron-icon{
+                transform: rotate(180deg);
+                path{
+                    fill:$clr-secondary;
+                    stroke:$clr-secondary;
+                }
+            }
+        }
+        .submenu{
+            transform: translateY(0);
+            display: flex;
+            height:auto;
+            visibility: visible;
+            opacity: 1;
+            pointer-events:initial;
+        }
+    }
+}
+// ==== Submenu Style Ends =====
+
+.aside-mobile{
+    position: fixed;
+    inset:0;
+    z-index: 11;
+    width: 100%;
+    height: 100%;
+    background-color:$clr-primary;
+    padding:em(16);
+    transform:translateX(-100%);
+    // left: 0;
+    @include breakpoint-sm{
+        padding:em(32);
+    }
+    .logo-wrapper{
+        img{
+            height:rem(45);
+        }
+    }
+    @include breakpoint-lg{
+        transform:translateX(-100%);
+    }
+    &.show{
+        left:0;
+    }
+}
+
+.mobile-menu{
+    height: 100%;
+    overflow-y: auto;
+    &__header{
+        @include flex-space-between;
+    }
+    &__body{
+        padding-block:em(32);
+    }
+    &__item{
+        position: relative;
+        padding-block:em(16);
+        transition:background-color 0.3s ease;
+    }
+    &__link{
+        color:$clr-white;
+        font-size: rem(24);
+        font-family: $ff-primary;
+        text-transform: capitalize;
+        @include transition(color, 0.25s, ease);
+        @include breakpoint-md{
+            font-size: rem(24);
+        }
+        &:hover{
+            color:$clr-secondary;
+        }
+    }
+    &__footer{
+        position: absolute;
+        left: 0;
+        bottom:2rem;
+        width: 100%;
+        padding-inline:em(16);
+        @include breakpoint-sm{
+            padding-inline:em(32);
+        }
+    }
+}
+
+.socials-mobile{
+    .socials__list{
+        @include flex-space-between;
+        flex-wrap:wrap;
+    }
+    .socials__link{
+        font-size: rem(16);
+        color:$clr-white;
+        font-family: $ff-secondary;
+        @include transition(color, 0.25s, ease);
+        &:hover{
+            color:$clr-secondary;
+        }
+    }
+}
+
+.close-menu-btn{
+   svg path{
+    @include transition(fill, 0.3s, ease);
+   }
+    &:hover{
+        cursor: pointer;
+        svg{
+            path{
+                fill:$clr-secondary;
+            }
+        }
+    }
+}
+
+.mobileSubmenu{
+    @include flex-space-between;
+}
+
+.mobile-menu-overlay{
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: $clr-primary;
+    z-index: 11;
+    padding:em(80) em(20);
+    transition: left 0.25s ease;
+    &__body{
+        padding-top: rem(16);
+    }
+    .top-title-wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .top-title{
+        font-size: rem(24);
+        font-family: $ff-primary;
+        color:$clr-white;
+    }
+    .mobile-menu__link{
+        font-size: rem(20);
+        font-family: $ff-secondary;
+    }
+    &.show{
+        // transform: translateX(0);
+        left: 0;
+    }
+}
+
+
+.arrow-back-btn{
+    position: absolute;
+    top: 16px;
+    left: 16px;
+}

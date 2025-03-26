@@ -1,0 +1,97 @@
+@use "../abstract/breakpoints" as *;
+@use "../abstract/colors" as *;
+@use "../abstract/fonts" as *;
+@use "../abstract/functions" as *;
+@use "../abstract/mixins" as *;
+
+.header{
+    &__logo-wrapper{
+       img{
+            height: rem(36);
+            @include breakpoint-lg{
+                height: auto;
+            }
+       }
+    }
+    &__btnWrapper{
+        a{
+            display: flex;
+            align-items: center;
+            gap:rem(12);
+            @include breakpoint-md{
+                gap:em(16);
+            }
+        }
+    }
+}
+
+.header-top {
+    padding-block:em(24);
+    background-color: $clr-light-gray;
+    @include breakpoint-lg{
+        padding-block:em(18); 
+    }
+    &__container{
+       @include flex-space-between;
+    }
+    &__right{
+        display: flex;
+        align-items: center;
+        // gap: clamp(1rem, 5vw, 2rem); // Min 1rem, max 3rem, scales with screen width
+        @include breakpoint-lg{
+            gap: 2rem;
+        }
+        @include breakpoint-xxl{
+            gap: 3rem;
+        }
+    }
+    &__list{
+        display: flex;
+        align-items: center;
+        gap:rem(32);
+        @include breakpoint-xxl{
+            gap:rem(48);
+        }
+        li{
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+    }
+}
+
+.header-bottom{
+    position: relative;
+    background-color: $clr-primary;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    transition:all 0.2s ease;
+    // transition: transform 0.25s ease;
+    &__container,
+    &__mobile{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: rem(60);
+    }
+    &.sticky{
+        // box-shadow: 0 0 2px 4px rgba(255,255,255,0.25); 
+    }
+    &.hidden{
+        transform: translateY(-160px);
+    }
+}
+
+.overlay{
+    position:fixed;
+    inset:0;
+    left: -100%;
+    width: 100vw;
+    height: 100vh;
+    background:rgba(0,0,0,0.75);
+    z-index: 10;
+    &.show{
+        left: 0;
+    }
+}

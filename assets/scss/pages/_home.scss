@@ -1,0 +1,228 @@
+@use "../abstract/breakpoints" as *;
+@use "../abstract/colors" as *;
+@use "../abstract/fonts" as *;
+@use "../abstract/functions" as *;
+@use "../abstract/mixins" as *;
+
+$height: calc(100vh - 150px);
+
+.hero{
+    &--home{
+        background-image: url("../assets/images/home-banner.png");
+        @include bg-cover;
+        height: $height;
+    }
+    &--about{
+        background-image: url("../assets/images/about-banner.png");
+        @include bg-cover;
+        height: $height;
+    }
+
+    &__content-wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: $height;
+    }
+
+    &--services{
+        background-image: url("../assets/images/services-banner.png");
+        @include bg-cover;
+        height: $height;
+
+    }
+
+    &--contact{
+        background-image: url("../assets/images/contact-banner.png");
+        @include bg-cover;
+        height: 70vh;
+    }
+}
+
+.sec-h-left{
+    max-width: 48rem;
+}
+
+.section-wrapper{
+    max-width:42rem;
+    margin-inline:auto;
+}
+
+.sec-p{
+    max-width: 38rem;
+}
+
+.transforming{
+    &__bottom-container{
+        background-image: url("../assets/images/bowl-dish-with-vegetables.png");
+        @include bg-cover;
+    }
+}
+
+.health-improvision{
+    background-image: url("../assets/images/women-posing-together.png");
+    @include bg-cover;
+    &__body{
+        max-width: 25rem;
+    }
+}
+
+.testing{
+    &__list{
+        max-width: 35rem;
+
+        li{
+            display: flex;
+            gap:rem(24);
+        }
+
+        .list-title{
+            position: relative;
+            a{
+                text-decoration: underline;
+                text-underline-offset: 2px;
+                text-decoration-color: $clr-primary;
+                -moz-text-decoration-color: $clr-primary;
+            }
+            &::after{
+                content:url("../assets/icons/chevron-right.svg");
+                margin-left: rem(12);
+                transform:translateX(0);
+                @include transition(transform, 0.3s, ease-out);
+            }
+            &:hover{
+                a{
+                    text-decoration-color: $clr-secondary;
+                    -moz-text-decoration-color: $clr-secondary;
+                }
+                &::after{
+                    content:url("../assets/icons/chevron-right.svg");
+                    transform:translateX(-6px);
+                }
+            }
+        }
+    }
+
+    .icon-box{
+        flex-shrink: 0;
+    }
+}
+
+.cta{
+    background-image: url("../assets/images/cta-img.png");
+    @include bg-cover;
+}
+
+.strategies{
+    background-image: url("../assets/images/woman-diet-concept.png");
+    @include bg-cover;
+}
+
+.icon-box-wrapper{
+    display: flex;
+    // flex-wrap: wrap;
+    gap:rem(20);
+    @include breakpoint-xl{
+        gap:rem(24)
+    }
+    @include breakpoint-xxl{
+        gap:rem(28)
+    }
+
+    .icon-box{
+        // flex-shrink: 0;
+        @include breakpoint-xxl{
+            flex-shrink: 0;
+        }
+    }
+}
+
+.counter{
+    &__wrapper{
+        max-width: 22rem;
+        @include breakpoint-xl{
+            text-align: center;
+        }
+    }
+    .counter-text{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap:rem(4);
+        font-size: rem(36);
+        line-height: 1.1;
+        font-family: $ff-primary;
+        @include breakpoint-lg{
+            font-size: rem(40);
+        }
+    }
+}
+
+.testimonials{
+    &__card{
+        padding:em(32) em(20);
+        background-color:$clr-white;
+        @include breakpoint-sm{
+            padding:em(36) em(24);
+        }
+        @include breakpoint-lg{
+            padding:em(44) em(32);
+        }
+        @include breakpoint-xl{
+            padding:em(48) em(36);
+        }
+        @include breakpoint-xxl{
+            padding:em(52) em(40);
+        }
+    }
+    &__card-content{
+        line-height: 1.25;
+        font-family: $ff-primary;
+        text-align: center;
+        font-size: rem(18);
+        @include breakpoint-md{
+            font-size: rem(20);
+        }
+        @include breakpoint-xl{
+            font-size: rem(22);
+        }
+    }
+    &__footer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap:rem(16);
+    }
+}
+
+.link{
+    font-size: rem(14);
+    line-height: 1.43;
+    text-decoration: underline;
+    color:$clr-secondary;
+}
+
+.blogs{
+    &__body{
+        max-width: 22rem;
+        margin-inline:auto;
+    }
+}
+
+.our-story{
+    &__list{
+        max-width: 24rem;
+    }
+}
+
+.quote-content{
+    font-size: rem(18);
+    line-height: 1.2;
+    font-family: $ff-primary;
+    @include breakpoint-xxl{
+        font-size: rem(20);
+    }
+    @include breakpoint-xxxl{
+        font-size: rem(22);
+    }
+}

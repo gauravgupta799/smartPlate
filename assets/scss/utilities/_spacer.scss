@@ -1,79 +1,221 @@
-@use "../abstract/functions" as *;
+// @use "../abstract/functions" as *;
 
-// Breakpoint sizes
-$sizes: (
-  xxs: em(348),
-  xs: em(480),
-  sm: em(576),
-  md: em(768),
-  lg: em(992),
-  xl: em(1200),
-  xxl: em(1600),
-  xxxl: em(1920)
-);
+// // Breakpoint sizes
+// $sizes: (
+//   xxs: em(348),
+//   xs: em(480),
+//   sm: em(576),
+//   md: em(768),
+//   lg: em(992),
+//   xl: em(1200),
+//   xxl: em(1600),
+//   xxxl: em(1920)
+// );
 
-// Spacing amounts
-$spaceAmounts: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16);
-$base-multiplier: 1rem;
+// // Spacing amounts
+// $spaceAmounts: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 0);
+// $base-multiplier: 1;
 
-// Generate responsive class
-@mixin generate-responsive($property, $direction, $space) {
-  @each $suffix, $width in $sizes {
-    @media only screen and (min-width: $width) {
-      &--#{$suffix} {
-        #{$property}-#{$direction}: #{calc($space * $base-multiplier)}rem !important;
+// // Generate responsive class
+// @mixin generate-responsive($property, $direction, $space) {
+//   @each $suffix, $width in $sizes {
+//     @media only screen and (min-width: $width) {
+//       &--#{$suffix} {
+//         #{$property}-#{$direction}: #{calc($space * $base-multiplier)}rem !important;
+//       }
+//     }
+//   }
+// }
+
+// // Generate margin and padding classes
+// @each $space in $spaceAmounts {
+//     .m--#{$space} {
+//         margin: #{calc($space * $base-multiplier)}rem !important; 
+//     }
+//     .mx--#{$space} { 
+//         @include generate-responsive('margin', 'left', $space); 
+//         @include generate-responsive('margin', 'right', $space); 
+//     }
+//     .my--#{$space} { 
+//         @include generate-responsive('margin', 'top', $space); 
+//         @include generate-responsive('margin', 'bottom', $space); 
+//     }
+//     .ml--#{$space} { 
+//         @include generate-responsive('margin', 'left', $space); 
+//     }
+//     .mr--#{$space} { 
+//         @include generate-responsive('margin', 'right', $space); 
+//     }
+//     .mt--#{$space} { 
+//         @include generate-responsive('margin', 'top', $space); 
+//     }
+//     .mb--#{$space} { 
+//         @include generate-responsive('margin', 'bottom', $space); 
+//     }
+
+//     .p--#{$space} {
+//         padding: #{calc($space * $base-multiplier)}rem; 
+//     }
+//     .px--#{$space} { 
+//         @include generate-responsive('padding', 'left', $space); 
+//         @include generate-responsive('padding', 'right', $space); 
+//     }
+//     .py--#{$space} { 
+//         @include generate-responsive('padding', 'top', $space); 
+//         @include generate-responsive('padding', 'bottom', $space); 
+//     }
+//     .pl--#{$space} { 
+//         @include generate-responsive('padding', 'left', $space); 
+//     }
+//     .pr--#{$space} { 
+//         @include generate-responsive('padding', 'right', $space); 
+//     }
+//     .pt--#{$space} { 
+//         @include generate-responsive('padding', 'top', $space); 
+//     }
+//     .pb--#{$space} { 
+//         @include generate-responsive('padding', 'bottom', $space); 
+//     }
+// }
+
+
+
+// =================================
+
+@use '../abstract/functions' as *;
+
+@mixin generate-responsive() {
+    // Create a list of sizes and widths
+    $sizes: (
+        xxs: em(348),
+        xs: em(480),
+        sm: em(576),
+        md: em(768),
+        lg: em(992),
+        xl: em(1200),
+        xxl: em(1600),
+        xxxl: em(1920),
+    );
+  
+    // Base style, without a suffix
+    @content;
+  
+    // Responsive styles
+    // Loop over each size
+    @each $suffix, $width in $sizes {
+      @media only screen and (min-width: $width) {
+        &--#{$suffix} { @content; }
       }
     }
-  }
 }
 
-// Generate margin and padding classes
-@each $space in $spaceAmounts {
-    .m-#{$space} {
-        margin: #{calc($space * $base-multiplier)}rem !important; 
+$spaceamounts: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 0);
+
+// change this order to manage the space multiplier
+$base-multiplier:1;
+
+@each $space in $spaceamounts { // looping throw the spacing value
+    .m{
+        @include generate-responsive(){ // to add the prefix of breakpoint
+            &-#{$space} {
+                margin:#{calc($space * $base-multiplier)}rem !important;
+            }
+        }
     }
-    .mx-#{$space} { 
-        @include generate-responsive('margin', 'left', $space); 
-        @include generate-responsive('margin', 'right', $space); 
+    .mx{
+        @include generate-responsive(){ // to add the prefix of breakpoint
+            &--#{$space}{
+                margin-left: #{calc($space * $base-multiplier)}rem !important;
+                margin-right: #{calc($space * $base-multiplier)}rem !important;
+            }
+        }
     }
-    .my-#{$space} { 
-        @include generate-responsive('margin', 'top', $space); 
-        @include generate-responsive('margin', 'bottom', $space); 
+    .my{
+        @include generate-responsive(){ // to add the prefix of breakpoint
+            &--#{$space}{
+                margin-top: #{calc($space * $base-multiplier)}rem !important;
+                margin-bottom: #{calc($space * $base-multiplier)}rem !important;
+            }
+        }
     }
-    .ml-#{$space} { 
-        @include generate-responsive('margin', 'left', $space); 
+    .ml{
+        @include generate-responsive(){ // to add the prefix of breakpoint
+            &--#{$space}{
+                margin-left: #{calc($space * $base-multiplier)}rem !important;
+            }
+        }
     }
-    .mr-#{$space} { 
-        @include generate-responsive('margin', 'right', $space); 
+    .mr{
+        @include generate-responsive(){ // to add the prefix of breakpoint
+            &--#{$space}{
+                margin-right: #{calc($space * $base-multiplier)}rem !important;
+            }
+        } 
     }
-    .mt-#{$space} { 
-        @include generate-responsive('margin', 'top', $space); 
+    .mb{
+        @include generate-responsive(){ // to add the prefix of breakpoint
+            &--#{$space}{
+                margin-bottom: #{calc($space * $base-multiplier)}rem !important;
+            }
+        } 
     }
-    .mb-#{$space} { 
-        @include generate-responsive('margin', 'bottom', $space); 
+    .mt{
+        @include generate-responsive(){ // to add the prefix of breakpoint
+            &--#{$space}{
+                margin-top: #{calc($space * $base-multiplier)}rem !important;
+            }
+        } 
     }
 
-    .p-#{$space} {
-        padding: #{calc($space * $base-multiplier)}rem !important; 
+    .p{
+        @include generate-responsive(){ // to add the prefix of breakpoint
+            &--#{$space}{
+                padding: #{calc($space * $base-multiplier)}rem !important;
+            }
+        }
     }
-    .px-#{$space} { 
-        @include generate-responsive('padding', 'left', $space); 
-        @include generate-responsive('padding', 'right', $space); 
+    .px{
+        @include generate-responsive(){ // to add the prefix of breakpoint
+            &--#{$space}{
+                padding-left: #{calc($space * $base-multiplier)}rem !important;
+                padding-right: #{calc($space * $base-multiplier)}rem !important;
+            }
+        } 
     }
-    .py-#{$space} { 
-        @include generate-responsive('padding', 'top', $space); 
-        @include generate-responsive('padding', 'bottom', $space); 
+    .py{
+        @include generate-responsive(){ // to add the prefix of breakpoint
+            &--#{$space}{
+                padding-top: #{calc($space * $base-multiplier)}rem !important;
+                padding-bottom: #{calc($space * $base-multiplier)}rem !important;
+            }
+        }   
     }
-    .pl-#{$space} { 
-        @include generate-responsive('padding', 'left', $space); 
+    .pl{
+        @include generate-responsive(){ // to add the prefix of breakpoint
+            &--#{$space}{
+                padding-left: #{calc($space * $base-multiplier)}rem !important;
+            }
+        } 
     }
-    .pr-#{$space} { 
-        @include generate-responsive('padding', 'right', $space); 
+    .pr{
+        @include generate-responsive(){ // to add the prefix of breakpoint
+            &--#{$space}{
+                padding-right: #{calc($space * $base-multiplier)}rem !important;
+            }
+        } 
     }
-    .pt-#{$space} { 
-        @include generate-responsive('padding', 'top', $space); 
+    .pb{
+        @include generate-responsive(){ // to add the prefix of breakpoint
+            &--#{$space}{
+                padding-bottom: #{calc($space * $base-multiplier)}rem !important;
+            }
+        } 
     }
-    .pb-#{$space} { 
-        @include generate-responsive('padding', 'bottom', $space); 
+    .pt{
+        @include generate-responsive(){ // to add the prefix of breakpoint
+            &--#{$space}{
+                padding-top: #{calc($space * $base-multiplier)}rem !important;
+            }
+        }  
     }
 }

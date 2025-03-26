@@ -15,7 +15,7 @@ $breakpoints: (
 );
 
 // Null is mobile, No breakpoints
-$p-size:(
+$p-sizes:(
     null:(rem(16), rem(24)),
     sm:(rem(16), rem(24)),
 );
@@ -132,7 +132,7 @@ h6{
 
 h1, h2, h3, h4, h5, h6{
     @include font-heading;
-    color: $clr-primary;
+    color: $clr-quartery;
 }
 
 p, ul, ol, body{

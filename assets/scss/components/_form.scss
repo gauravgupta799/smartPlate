@@ -1,0 +1,155 @@
+@use '../abstract/functions' as *;
+@use '../abstract/colors' as *;
+@use '../abstract/fonts' as *;
+@use '../abstract/mixins' as *;
+@use '../abstract/breakpoints' as *;
+
+
+.form{
+    &__group-wrapper{
+        display: flex;
+        align-items: center;
+        gap:rem(16);
+    }
+    &__group{
+        position: relative;
+        width: 100%;
+    }
+    &__control{
+        position: relative;
+        outline:none;
+        border:none;
+        width: 100%;
+        font-family: $ff-v-regular;
+        outline:1px solid $clr-gray;
+        background: $clr-white;
+        caret-color: $clr-quartery;
+        color:$clr-quartery;
+        font-size: rem(16);
+        line-height: 2;
+        padding:em(12) em(16);
+        &::placeholder{
+            color:$clr-black;
+        }
+    }
+    &__label{
+        display: inline-block;
+        pointer-events: none;
+        position: absolute;
+        text-transform: capitalize;
+        font-family: $ff-v-regular;
+        color:$clr-quartery;
+        top: 50%;
+        left:rem(14);
+        font-size: rem(14);
+        line-height: 1.75;
+        padding-left: 1em;
+        margin-bottom: 0;
+        transform: translateY(-50%);
+        transition: all .3s ease;
+        &--textarea{
+            top: 20%;
+        }
+    }
+}
+
+.form__label.focused{
+    top: 0;
+    font-size: rem(12);
+    padding-inline: rem(8);
+    background-color:$clr-white;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    line-height: 1.25;
+}
+
+.form__control.focused{
+    outline-color: $clr-secondary;
+    & + label{
+        color:$clr-secondary;
+    }
+}
+
+.form__control:focus {
+    outline-color: $clr-secondary;
+    & + label{
+        color:$clr-secondary
+    }
+}
+
+
+// .footer-form-group{
+//     @include flex-center-vertical;
+//     background: $clr-white;
+//     max-width: rem(500);
+//     @include border-radius(24px);
+// }
+
+// .footer-form-control{
+//     line-height: 2.5;
+//     outline:none;
+//     border-radius: 24px 0 0 24px;
+//     border: 2px solid $clr-black;
+//     border-right:none;
+// }
+
+
+// .footer-form-control:focus + label,
+// .footer-form-control:valid + label{
+//     top: rem(10);
+//     padding-top: rem(6);
+//     background: transparent;
+// }
+
+// .footer-form-control{
+//     &:focus{
+//         border-color:$clr-secondary;
+//     }
+// }
+
+.custom-select {
+    position: relative;
+    &::after{
+        content: url("../assets/icons/chevron-down.svg");
+        position: absolute;
+        top: 16px;
+        right: 32px;
+        transition:transform 0.3s ease;
+        transform:rotate(0deg);
+    }
+    &:focus-within{
+        &::after {
+            transform:rotate(180deg);
+        }
+    }
+
+}
+
+select {
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none; /* Safari and Chrome */
+    -moz-appearance: none; /* Firefox */
+    width: 100%;
+}
+
+#signup-cta-btn{
+    &.disabled{
+        opacity: 0.65;
+        cursor: not-allowed;
+        user-select: none;
+    }
+    &.enabled{
+        opacity:1;
+        cursor: pointer;
+        all:revert;
+    }
+}
+
+.contact-info{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+ 

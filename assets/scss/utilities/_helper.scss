@@ -105,6 +105,10 @@
 .overflow-hidden{
     overflow:hidden;
 }
+.overflow-wrapper{
+    position: relative;
+    overflow: hidden;
+}
 
 .list-none{
     list-style: none;
@@ -128,10 +132,102 @@
     &--white{
         background:$clr-white;
     }
-    &--grey{
-        background:$clr-grey; 
+    &--gray{
+        background:$clr-gray; 
+    }
+    &--gray-2{
+        background:$clr-gray-2; 
     }
     &--secondary{
         background: $clr-secondary;    
+    }
+
+    &--50{
+        width: 50%;
+    }
+    &--25{
+        width: 25%;
+    }
+    &--15{
+        width: 15%;
+    }
+    &--10{
+        width: 10%;
+    }
+}
+
+.flex{
+    @include flex-center(vertical);
+    flex-wrap: wrap;
+    gap:rem(16);
+
+    &--gap1{
+        gap:rem(24)
+    }
+    &--gap2{
+        gap:rem(32)
+    }
+    &--gap3{
+        gap:rem(40)
+    }
+    &--gap4{
+        gap:rem(48)
+    }
+    &--gap5{
+        gap:rem(56)
+    }
+    &--gap6{
+        gap:rem(64)
+    }
+}
+
+.fz-14{
+    font-size: rem(14);
+    line-height: 1.45;
+}
+
+.fz-16{
+    font-size: rem(16);
+    line-height: 1.5;
+}
+
+.fz-18{
+    font-size: rem(18);
+    line-height: 1.65;
+}
+
+.link-hover{
+    @include transition(all, 0.25s, ease);
+    svg{
+        path{
+            @include transition(all, 0.25s, ease);
+        }
+    }
+    &:hover{
+        cursor: pointer;
+        color:$clr-secondary;
+        svg{
+            path{
+                fill:$clr-secondary;
+                stroke:$clr-secondary;
+            }
+        }
+    }
+}
+
+
+.img-hover{
+    position: relative;
+    overflow:hidden;
+    img{
+        transform: translateZ(0);
+        transition:transform 0.25s ease-out;
+        will-change: transform;
+    }
+    &:hover{
+        img{
+            transform: scale3d(1.06, 1.06, 1);
+            // transform: scale(1.06);
+        }
     }
 }

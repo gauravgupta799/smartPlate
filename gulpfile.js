@@ -1,7 +1,7 @@
 const {src, dest, watch, series} = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
-const autoprefixer = require("gulp-autoprefixer");
-const cssnano = require("gulp-cssnano");
+const autoprefixer = require("autoprefixer");
+const cssnano = require("cssnano");
 const postcss = require("gulp-postcss");
 const terser = require("gulp-terser");
 const concat = require("gulp-concat");
@@ -19,10 +19,9 @@ const cssFiles = [
 // SASS Task For Style CSS
 function scssTask(){
     return src(cssFiles, { sourcemaps: true})
-    .pipe(scss())
+    .pipe(sass())
     .pipe(concat(".bundle.css"))
-    .pipe(postcss([autoprefixer(), cssnano()]))
-    .pipe(rename("bundle.min.css"))
+    .pipe(postcss([autoprefixer()]))
     .pipe(dest("dist", {sourcemaps:'.'}))
 }
 
@@ -39,7 +38,7 @@ function scssTaskMinified(){
 // JavaScipts Files
 const jsFiles = [
     "assets/vendors/jquery/jquery-3.7.1.min.js",
-    "assets/vendors/lenis/lenis-latest.js",
+    "assets/vendors/lenis/lenis-latest.min.js",
     "assets/vendors/swiper-js-11-2-4/swiper-bundle.min.js",
     "assets/vendors/gsap/gsap-3-12-7.min.js",
     "assets/vendors/gsap/ScrollTrigger-3-12-7.min.js",
@@ -77,11 +76,19 @@ function browserSyncReload(callback){
 // watch("assets/js/**/*.js", jsTask);
 
 // Watch Tasks
+// function watchTask(){
+//     watch(
+//         ["assets/js/**/*.js", "assets/scss/**/*.scss"], 
+//         series(scssTask, scssTaskMinified, jsTask, browserSyncReload)
+//     );
+//     watch("*.html").on("change", browserSyncReload);
+// }
+
 function watchTask(){
-    watch(["assets/js/**/*.js", "assets/scss/**/*.scss"], series(
-        scssTask, scssTaskMinified, jsTask, browserSyncReload
-    ));
-    watch("*.html").on("change", browserSyncReload);
+    watch("*.html", browserSyncReload);
+    watch(["assets/scss/**/*.scss", "assets/js/main.js"], 
+        series(scssTask, scssTaskMinified, jsTask, browserSyncReload)
+    );
 }
 
 // Export Tasks

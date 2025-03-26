@@ -1,0 +1,60 @@
+@use "../abstract/breakpoints" as *;
+@use "../abstract/colors" as *;
+@use "../abstract/fonts" as *;
+@use "../abstract/functions" as *;
+@use "../abstract/mixins" as *;
+
+.btn{
+    outline:none;
+    border:none;
+    background-color: transparent;
+    padding:em(16) em(26);
+    font-size: rem(16);
+    font-family: $ff-tertiary;
+    @include radius(28px);
+    color:$clr-white;
+    border:1px solid $clr-white;
+    filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.16));
+    -webkit-filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.16));
+    cursor: pointer;
+    @include transition(all, 0.25s, ease);
+    @include breakpoint-sm{
+        padding:em(16) em(32);
+    }
+    @include breakpoint-lg{
+        padding:em(16) em(36);
+    }
+}
+
+.btn--primary{
+    @extend .btn;
+    background-color: $clr-secondary;
+    &:hover{
+        background-color: $clr-quartery;
+    }
+}
+
+.btn--secondary{
+    @extend .btn;
+    background-color: $clr-primary;
+}
+
+.btn--white{
+    @extend .btn;
+    background-color: $clr-white;
+    color:$clr-black;
+    border-color: $clr-black;
+}
+
+.btn--outline{
+    @extend .btn;
+    &:hover{
+        background-color: $clr-secondary
+    }
+}
+
+// .btn--transparent{
+//     @extend .btn;
+//     border:none;
+
+// }

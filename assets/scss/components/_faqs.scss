@@ -1,0 +1,106 @@
+@use '../abstract/functions' as *;
+@use '../abstract/colors' as *;
+@use '../abstract/fonts' as *;
+@use '../abstract/mixins' as *;
+@use '../abstract/breakpoints' as *;
+
+
+// ============= faq or accordion ===================
+.accordion {
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+}
+
+.accordion-title{
+    position: relative;
+    justify-content: space-between;
+    text-transform: capitalize;
+    gap:rem(12);
+    font-size: rem(18);
+    line-height: 1.6;
+    background-color: $clr-white;
+    border:1px solid #D2D2D2;
+    padding:em(16) em(20);
+    @include breakpoint-md{
+        padding:em(20) em(24);  
+    }
+    @include breakpoint-xl{
+        padding:em(20) em(32);  
+    }
+    @include breakpoint-xxl{
+        padding:em(20) em(36);  
+    }
+    span{
+        max-width: 35rem;
+        display: inline-block;
+        @include breakpoint-xl{
+            max-width: 40rem;
+        }
+        @include breakpoint-xxl{
+            max-width: 45rem;
+        }
+    }
+    &::after {
+        content: "+";
+        color:$clr-secondary;
+        position: absolute;
+        top: 20px;
+        right: 16px;
+        @include breakpoint-lg{
+            right: 32px;
+        }
+    }    
+    &:hover {
+        color: $clr-primary;
+        cursor: pointer;
+    }
+}
+
+
+.accordion-content {
+    width: 100%;
+    background-color: $clr-white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    padding-inline:em(20);
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+    @include breakpoint-md{
+        padding-inline:em(24);  
+    }
+    @include breakpoint-xl{
+        padding-inline:em(32);  
+    }
+    @include breakpoint-xxl{
+        padding-inline:em(36);  
+    }
+    p{
+        padding-block: em(32);
+        &:first-child{
+            padding-bottom: rem(8);
+        }
+        &:last-child{
+            padding-bottom: rem(32) !important;
+        }
+    }
+
+    p + p{
+        padding-block:em(20);
+        margin-top: 0;
+    }
+}
+
+.accordion-title.is-open{
+    &.is-open{
+        color:$clr-primary;
+        &::after {
+            content: "-";
+        }
+    }
+    .accordion-content{
+        border:1px solid #D2D2D2;
+        border-top: 0px;
+    }
+}

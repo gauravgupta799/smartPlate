@@ -42,7 +42,7 @@ html, body{
 }
 
 ::-webkit-scrollbar-thumb {
-    background: $clr-tertiary; 
+    background: $clr-primary; 
     border-radius: 10px;
 }
 
@@ -65,7 +65,7 @@ form, fieldset, input, textarea, p blockquote, th, td{
 }
 
 h1 + p, h2 + p, h3 + p, h4 + p,  h5 + p, h6 + p{
-    margin-top:rem(24);
+    margin-top:rem(16);
 }
 
 p + p{
@@ -73,7 +73,7 @@ p + p{
 }
 
 span + span {
-    margin-top: rem(10);
+    margin-top: rem(8);
 }
 
 img{
@@ -83,7 +83,7 @@ img{
 
 a{
     text-decoration: none;
-    color:$clr-pimary;
+    color:$clr-quartery;
 }
 
 textarea{
@@ -118,4 +118,5 @@ body{
     font-weight: normal;
     font-size: normal;
     letter-spacing: normal;
+    background-color: $clr-light-gray;
 }

@@ -1,0 +1,175 @@
+@use "../abstract/breakpoints" as *;
+@use "../abstract/colors" as *;
+@use "../abstract/fonts" as *;
+@use "../abstract/functions" as *;
+@use "../abstract/mixins" as *;
+
+
+.steps{
+    background-image: url("../assets/images/bowl-dish-with-vegetables.png");
+    @include bg-cover;
+    &__container{
+        display: flex;
+        flex-direction: column;
+        @include breakpoint-lg{
+            flex-direction: row;
+        }
+    }
+    &__wrapper{
+        margin-inline: auto;
+        text-align: center;
+        padding-inline: 2em;
+        position: relative;
+        z-index: 1;
+        @include breakpoint-lg{
+            padding-inline:1em;
+        }
+        &:not(:last-child){
+            &::after{
+                content: "";
+                position: absolute;
+                z-index: -1;
+                @include breakpoint-lg{
+                    top: 18px;
+                    width: calc(100% - 128px);
+                    height: 2px;
+                    background: repeating-linear-gradient(90deg, rgba(255,255,255,0.8) 0, rgba(255,255,255,0.8) 4px, transparent 4px, transparent 10px);
+                    margin-left: 16%; 
+                }
+                @include breakpoint-xxl{
+                    width: calc(100% - 32px);  
+                }          
+            }
+        }
+    }
+    &__number{
+        color:$clr-white;
+        font-family: $clr-primary;
+        font-family: $ff-primary;
+        font-size: rem(32);
+        line-height: 0.875;
+        @include breakpoint-md{
+            font-size: rem(36);
+        }
+        @include breakpoint-xl{
+            font-size: rem(40);
+        }
+    }
+    &__title{
+        font-size: rem(24);
+        line-height: 1.25;
+        font-family:$ff-v-regular;
+        margin-top: rem(24);
+        text-transform: capitalize;
+
+    }
+    &__desc{
+        margin-top: rem(12);
+        font-size: rem(14);
+        line-height: 1.45;
+        max-width: 20rem;
+        margin-inline:auto;
+    }
+}
+
+.gen-well{
+    &__list{
+        li{
+            padding-bottom: em(24);
+        }
+    }
+    &__list-title{
+        display: flex;
+        font-size: rem(24);
+        line-height: 1.5;
+        font-family: $ff-primary;
+        color:$clr-quartery;
+        position: relative;
+        &::before{
+            content:url("../assets/icons/checkbox-with-bg.svg");
+            position: absolute;
+            margin-left: -2em;
+        }
+    }
+}
+
+.why-choose{
+    background-image: url("../assets/images/women-posing-together.png");
+    @include bg-cover;
+    &__title{
+        font-size: rem(20);
+        line-height: 1.25;
+        font-family: $ff-primary;
+        color:$clr-white;
+        position: relative;
+        z-index: 1;
+        &::before{
+            content: url("../assets/icons/checkbox-white-bg.svg");
+            position: absolute;
+            left: -10%;
+        }
+        @include breakpoint-xxl{
+            font-size: rem(24); 
+        }
+    }
+}
+
+.case-studies{
+    &__figure{
+        position: relative;
+        width: 100%;
+
+        img{
+            width: 100%;
+            @include breakpoint-sm{
+                max-width: 100%;
+                width: auto;
+            }
+        }
+
+        figcaption{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: inherit;
+            background-color: $clr-primary;
+            text-align: center;
+            padding-block:em(10);
+        }
+
+        p{
+            color:$clr-white;
+            font-size: rem(16);
+            line-height: 1.6;
+            font-family: $ff-primary;
+            @include breakpoint-xl{
+                font-size: rem(18);
+            }
+            @include breakpoint-xxl{
+                font-size: rem(20);
+            }
+        }
+    }
+}
+
+.our-plans{
+    &__list{
+        li{
+            position: relative;
+            display: flex;
+            gap:rem(16);
+            &::before{
+                content:url("../assets/icons/checkbox-with-bg.svg");
+            }
+            @include breakpoint-md{
+                gap:rem(20);
+            }
+            
+        }
+        .plans-title{
+            font-size: rem(20);
+            line-height: 1.25;
+            font-family: $ff-primary;
+        }
+    }
+}

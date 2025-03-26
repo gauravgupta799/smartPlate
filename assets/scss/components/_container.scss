@@ -6,13 +6,14 @@ $full-width:100%;
 // ------ Page Container Starts -----------
 .page-container{
     max-width: none;
-    margin: 0 auto;
+    margin:0 rem(16);
+
     @include breakpoint-sm{
         margin: 0 rem(20);
     }
     @include breakpoint-md{
         max-width: calc($full-width * 0.9055);
-        margin: 0 rem(20);
+        margin: 0 auto;
     }
     @include breakpoint-lg{
         max-width:calc($full-width*0.9093);
@@ -67,5 +68,27 @@ $full-width:100%;
 
     @include breakpoint-xxl{
         max-width:calc($full-width*0.8277);
+    }
+}
+
+
+.page-container-inner {
+    // max-width: none;
+    // margin:0 rem(16);
+    // @include breakpoint-sm{
+    //     margin: 0 rem(20);
+    // }
+    @include breakpoint-md{
+        max-width: calc($full-width * 0.96);
+        margin: 0 auto;
+    }
+    @include breakpoint-lg{
+        max-width:calc($full-width*0.94);
+    }
+    @include breakpoint-xl{
+        max-width:calc($full-width*0.92);
+    }
+    @include breakpoint-xxl{
+        max-width:calc($full-width*0.91);
     }
 }

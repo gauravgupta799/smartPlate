@@ -1,0 +1,170 @@
+@use "../abstract/breakpoints" as *;
+@use "../abstract/colors" as *;
+@use "../abstract/fonts" as *;
+@use "../abstract/functions" as *;
+@use "../abstract/mixins" as *;
+
+
+.hero{
+    &__about-wrapper{
+        display: flex;
+        align-items: center;
+        gap:rem(32);
+        max-width: 55rem;
+        margin-inline:auto;
+        @include breakpoint-md{
+            gap:rem(36)
+        }
+        @include breakpoint-lg{
+            gap:rem(40)
+        }
+        @include breakpoint-xl{
+            gap:rem(48)
+        }
+    }
+    &__bottom-subtitle{
+        font-size: rem(18);
+        line-height: 1.33;
+        font-family: $ff-v-regular;
+        @include breakpoint-sm{
+            font-size: rem(20);
+        }
+        @include breakpoint-md{
+            font-size: rem(22);
+        }
+        @include breakpoint-lg{
+            font-size: rem(24);
+        }
+    }
+}
+
+.our-story{
+    &__list{
+        .year{
+            font-size: rem(24);
+            line-height: 1.25;
+            font-family: $ff-primary;
+            color:$clr-quartery;
+        }
+        li:not(:last-child){
+            padding-bottom: em(24);
+            border-bottom: 1px solid #D1D1D1;
+        }
+    }
+}
+
+// ============= Team Styles Start =======
+.team{
+    &__footer{
+        li{
+            font-size: rem(14);
+            line-height: 1.43;
+        }
+    }
+    &__footer-title{
+        font-family: $ff-tertiary;
+    }
+}
+
+.team-footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.read-bio-btn{
+    font-size: rem(20);
+    font-family: $ff-primary;
+    color:$clr-secondary;
+    text-decoration: underline;
+    text-decoration-color:$clr-secondary;
+    -moz-text-decoration-color:$clr-secondary;
+    @include transition(all, 0.25s, ease);
+    &:hover{
+        cursor: pointer;
+        color:$clr-quartery;
+        text-decoration-color: $clr-quartery;
+        -moz-text-decoration-color: $clr-quartery;
+    }
+}
+
+.team-bio-popup{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    background: $clr-white;
+    padding: em(20);
+    padding-right: em(6);
+    @include radius(8px);
+    width: min(96%, rem(1200));
+    margin-inline:auto;
+    height: 0px;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease-in;
+
+    // &.show{
+    //     height:auto;
+    //     visibility: visible;
+    //     opacity: 1;
+    //     pointer-events:initial;
+    // }
+}
+
+.team-member{
+    display: flex;
+    transform:translateY(10px);
+    transition:transform 0.25s ease-out;
+    &__details{
+        padding:em(24);
+        padding-top: 0;
+        padding-bottom: rem(32);
+        max-height: 60vh; /* Set a height limit */
+        overflow-y: auto; /* Enable scrolling when content is too long */
+        scroll-behavior: smooth; /* Smooth scrolling */
+        -webkit-overflow-scrolling: touch; /* Improves touch scrolling */
+
+        &::-webkit-scrollbar {
+            width: 4px;
+        }
+        
+        &::-webkit-scrollbar-track {
+            background-color: $clr-white;
+            @include radius(10px);
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background: $clr-primary; 
+            @include radius(10px);
+        }
+    }
+}
+
+.team-bio-popup.show{
+    height:auto;
+    visibility: visible;
+    opacity: 1;
+    pointer-events:initial;
+    .team-member{
+        transform:translateY(0);
+    }
+}
+
+.popup-close-btn{
+    position: fixed;
+    top: rem(-48);
+    right:0;
+    z-index: 12;
+    &:hover{
+        cursor: pointer;
+        svg path{
+            fill:$clr-secondary;
+        }
+    }
+}
+
+.team-footer-top{
+    max-width: 15rem;
+}
