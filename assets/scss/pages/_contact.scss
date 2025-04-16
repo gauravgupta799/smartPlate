@@ -7,7 +7,7 @@
 
 .location{
     &__card{
-        padding-bottom:em(80);
+        padding-bottom:em(64);
         border-bottom:1px solid $clr-gray;
         @include breakpoint-sm{
             border-bottom: none; 

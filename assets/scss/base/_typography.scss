@@ -22,19 +22,19 @@ $p-sizes:(
 
 
 $h1-sizes: (
-  null: (rem(36), rem(44)),   
-  sm: (rem(36), rem(44)),
-  md: (rem(40), rem(48)),
-  lg: (rem(44), rem(52)),
-  xl: (rem(48), rem(56)),
-  xxl: (rem(52), rem(60)),
-  xxxl: (rem(56), rem(64)),
+  null: (rem(32), rem(40)),   
+  sm: (rem(32), rem(40)),
+  md: (rem(36), rem(44)),
+  lg: (rem(40), rem(48)),
+  xl: (rem(44), rem(52)),
+  xxl: (rem(48), rem(56)),
+  xxxl: (rem(52), rem(60)),
 );
 
 $h2-sizes:(
-  null:(rem(32), rem(36)), 
-  sm:(rem(32), rem(36)),
-  md:(rem(36), rem(40)),
+  null:(rem(28), rem(32)), 
+  sm:(rem(28), rem(32)),
+  md:(rem(32), rem(36)),
   lg:(rem(36), rem(40)),
   xl:(rem(40), rem(44)),
   xxl:(rem(40), rem(44)),
@@ -42,11 +42,11 @@ $h2-sizes:(
 );
 
 $h3-sizes: (
-  null:(rem(28), rem(32)), 
-  sm:(rem(28), rem(32)),
-  md:(rem(32), rem(36)),
+  null:(rem(26), rem(30)), 
+  sm:(rem(26), rem(30)),
+  md:(rem(28), rem(32)),
   lg:(rem(32), rem(36)),
-  xl:(rem(36), rem(40)),
+  xl:(rem(32), rem(36)),
   xxl:(rem(36), rem(40)),
   xxxl:(rem(40), rem(44)),
 );
@@ -54,9 +54,9 @@ $h3-sizes: (
 $h4-sizes: (
   null:(rem(24), rem(28)), 
   sm :(rem(24), rem(28)),
-  md :(rem(28), rem(32)),
+  md :(rem(26), rem(30)),
   lg :(rem(28), rem(32)),
-  xl :(rem(32), rem(36)),
+  xl :(rem(30), rem(34)),
   xxl :(rem(32), rem(36)),
   xxxl :(rem(36), rem(40)),
 );

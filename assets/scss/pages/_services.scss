@@ -6,7 +6,7 @@
 
 
 .steps{
-    background-image: url("../assets/images/bowl-dish-with-vegetables.png");
+    background-image: url("../assets/images/bowl-dish-with-vegetables.webp");
     @include bg-cover;
     &__container{
         display: flex;
@@ -94,7 +94,7 @@
 }
 
 .why-choose{
-    background-image: url("../assets/images/women-posing-together.png");
+    background-image: url("../assets/images/women-posing-together.webp");
     @include bg-cover;
     &__title{
         font-size: rem(20);

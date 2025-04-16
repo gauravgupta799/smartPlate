@@ -17,8 +17,14 @@
         a{
             display: flex;
             align-items: center;
-            gap:rem(12);
+            gap:rem(10);
+            @include breakpoint-sm{
+                gap:em(12);
+            }
             @include breakpoint-md{
+                gap:em(14);
+            }
+            @include breakpoint-lg{
                 gap:em(16);
             }
         }
@@ -76,7 +82,7 @@
         height: rem(60);
     }
     &.sticky{
-        // box-shadow: 0 0 2px 4px rgba(255,255,255,0.25); 
+        box-shadow: 0px 1px 1px rgb(83 80 80 / 50%);
     }
     &.hidden{
         transform: translateY(-160px);

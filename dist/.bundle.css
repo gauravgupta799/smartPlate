@@ -901,60 +901,60 @@ body {
 }
 
 h1 {
-  font-size: 2.25rem;
-  line-height: 2.75rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
 }
 @media screen and (min-width: 36em) {
+  h1 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}
+@media screen and (min-width: 48em) {
   h1 {
     font-size: 2.25rem;
     line-height: 2.75rem;
   }
 }
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 62em) {
   h1 {
     font-size: 2.5rem;
     line-height: 3rem;
   }
 }
-@media screen and (min-width: 62em) {
+@media screen and (min-width: 75em) {
   h1 {
     font-size: 2.75rem;
     line-height: 3.25rem;
   }
 }
-@media screen and (min-width: 75em) {
+@media screen and (min-width: 100em) {
   h1 {
     font-size: 3rem;
     line-height: 3.5rem;
   }
 }
-@media screen and (min-width: 100em) {
+@media screen and (min-width: 120em) {
   h1 {
     font-size: 3.25rem;
     line-height: 3.75rem;
   }
 }
-@media screen and (min-width: 120em) {
-  h1 {
-    font-size: 3.5rem;
-    line-height: 4rem;
-  }
-}
 
 h2 {
-  font-size: 2rem;
-  line-height: 2.25rem;
+  font-size: 1.75rem;
+  line-height: 2rem;
 }
 @media screen and (min-width: 36em) {
   h2 {
-    font-size: 2rem;
-    line-height: 2.25rem;
+    font-size: 1.75rem;
+    line-height: 2rem;
   }
 }
 @media screen and (min-width: 48em) {
   h2 {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+    font-size: 2rem;
+    line-height: 2.25rem;
   }
 }
 @media screen and (min-width: 62em) {
@@ -983,19 +983,19 @@ h2 {
 }
 
 h3 {
-  font-size: 1.75rem;
-  line-height: 2rem;
+  font-size: 1.625rem;
+  line-height: 1.875rem;
 }
 @media screen and (min-width: 36em) {
   h3 {
-    font-size: 1.75rem;
-    line-height: 2rem;
+    font-size: 1.625rem;
+    line-height: 1.875rem;
   }
 }
 @media screen and (min-width: 48em) {
   h3 {
-    font-size: 2rem;
-    line-height: 2.25rem;
+    font-size: 1.75rem;
+    line-height: 2rem;
   }
 }
 @media screen and (min-width: 62em) {
@@ -1006,8 +1006,8 @@ h3 {
 }
 @media screen and (min-width: 75em) {
   h3 {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+    font-size: 2rem;
+    line-height: 2.25rem;
   }
 }
 @media screen and (min-width: 100em) {
@@ -1035,8 +1035,8 @@ h4 {
 }
 @media screen and (min-width: 48em) {
   h4 {
-    font-size: 1.75rem;
-    line-height: 2rem;
+    font-size: 1.625rem;
+    line-height: 1.875rem;
   }
 }
 @media screen and (min-width: 62em) {
@@ -1047,8 +1047,8 @@ h4 {
 }
 @media screen and (min-width: 75em) {
   h4 {
-    font-size: 2rem;
-    line-height: 2.25rem;
+    font-size: 1.875rem;
+    line-height: 2.125rem;
   }
 }
 @media screen and (min-width: 100em) {
@@ -5400,19 +5400,44 @@ p, ul, ol, body {
   gap: 1rem;
 }
 .flex--gap1 {
-  gap: 1.5rem;
+  gap: 1rem;
+}
+@media only screen and (min-width: 48em) {
+  .flex--gap1 {
+    gap: 1.5rem;
+  }
 }
 .flex--gap2 {
-  gap: 2rem;
+  gap: 1.5rem;
+}
+@media only screen and (min-width: 48em) {
+  .flex--gap2 {
+    gap: 2rem;
+  }
 }
 .flex--gap3 {
-  gap: 2.5rem;
+  gap: 2rem;
+}
+@media only screen and (min-width: 48em) {
+  .flex--gap3 {
+    gap: 2.5rem;
+  }
 }
 .flex--gap4 {
-  gap: 3rem;
+  gap: 2.5rem;
+}
+@media only screen and (min-width: 48em) {
+  .flex--gap4 {
+    gap: 3rem;
+  }
 }
 .flex--gap5 {
-  gap: 3.5rem;
+  gap: 2.75rem;
+}
+@media only screen and (min-width: 48em) {
+  .flex--gap5 {
+    gap: 3.5rem;
+  }
 }
 .flex--gap6 {
   gap: 4rem;
@@ -19322,7 +19347,7 @@ p, ul, ol, body {
   border: none;
   background-color: transparent;
   padding: 1em 1.625em;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-family: "Manrope-Bold", sans-serif;
   border-radius: 28px;
   color: #FFFFFF;
@@ -19340,6 +19365,11 @@ p, ul, ol, body {
 @media only screen and (min-width: 62em) {
   .btn, .btn--outline, .btn--white, .btn--secondary, .btn--primary {
     padding: 1em 2.25em;
+  }
+}
+@media only screen and (min-width: 75em) {
+  .btn, .btn--outline, .btn--white, .btn--secondary, .btn--primary {
+    font-size: 1rem;
   }
 }
 
@@ -19874,9 +19904,19 @@ select {
 .header__btnWrapper a {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.625rem;
+}
+@media only screen and (min-width: 36em) {
+  .header__btnWrapper a {
+    gap: 0.75em;
+  }
 }
 @media only screen and (min-width: 48em) {
+  .header__btnWrapper a {
+    gap: 0.875em;
+  }
+}
+@media only screen and (min-width: 62em) {
   .header__btnWrapper a {
     gap: 1em;
   }
@@ -19939,6 +19979,9 @@ select {
   align-items: center;
   justify-content: space-between;
   height: 3.75rem;
+}
+.header-bottom.sticky {
+  box-shadow: 0px 1px 1px rgba(83, 80, 80, 0.5);
 }
 .header-bottom.hidden {
   transform: translateY(-160px);
@@ -20019,39 +20062,95 @@ a[href="https://yourhustler.com"]:hover {
   -moz-text-decoration-color: #BF7146;
 }
 
-.hero--home {
-  background-image: url("../assets/images/home-banner.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: calc(100vh - 150px);
-}
-.hero--about {
-  background-image: url("../assets/images/about-banner.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: calc(100vh - 150px);
-}
 .hero__content-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: calc(100vh - 150px);
 }
+.hero--home {
+  background-image: url("../assets/images/home-banner.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(100vh - 150px);
+}
+.hero--about {
+  background-image: url("../assets/images/about-banner.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(100vh - 150px);
+}
 .hero--services {
-  background-image: url("../assets/images/services-banner.png");
+  background-image: url("../assets/images/services-banner.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(100vh - 150px);
+}
+.hero--70-gen {
+  background-image: url("../assets/images/70-gen/70-gene-banner.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(100vh - 150px);
+}
+.hero--genetic-testing {
+  background-image: url("../assets/images/genetic-testing/Genetic-testing-banner.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(100vh - 150px);
+}
+.hero--micro-nutrition {
+  background-image: url("../assets/images/micro-nutrition/micronutrient-testing-banner.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(100vh - 150px);
+}
+.hero--body-Composition {
+  background-image: url("../assets/images/body-composition/body-composition-banner.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(100vh - 150px);
+}
+.hero--weight-loss {
+  background-image: url("../assets/images/weight-loss/weight-loss-banner.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(100vh - 150px);
+}
+.hero--getControl {
+  background-image: url("../assets/images/get-control/get-control-banner.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(100vh - 150px);
+}
+.hero--referYourPatients {
+  background-image: url("../assets/images/refer-your-patient-banner.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   height: calc(100vh - 150px);
 }
 .hero--contact {
-  background-image: url("../assets/images/contact-banner.png");
+  background-image: url("../assets/images/contact-banner.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   height: 70vh;
+}
+.hero--loveYourHeart {
+  background-image: url("../assets/images/love-your-heart-banner.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(100vh - 150px);
 }
 
 .sec-h-left {
@@ -20068,20 +20167,27 @@ a[href="https://yourhustler.com"]:hover {
 }
 
 .transforming__bottom-container {
-  background-image: url("../assets/images/bowl-dish-with-vegetables.png");
+  background-image: url("../assets/images/bowl-dish-with-vegetables.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .health-improvision {
-  background-image: url("../assets/images/women-posing-together.png");
+  background-image: url("../assets/images/women-posing-together.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .health-improvision__body {
   max-width: 25rem;
+}
+
+.convenient-nutrition {
+  background-image: url("../assets/images/convenient-nutrition.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .testing__list {
@@ -20119,14 +20225,14 @@ a[href="https://yourhustler.com"]:hover {
 }
 
 .cta {
-  background-image: url("../assets/images/cta-img.png");
+  background-image: url("../assets/images/cta-img.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .strategies {
-  background-image: url("../assets/images/woman-diet-concept.png");
+  background-image: url("../assets/images/woman-diet-concept.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -20239,9 +20345,14 @@ a[href="https://yourhustler.com"]:hover {
 }
 
 .quote-content {
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.2;
   font-family: "Verdana-Bold", sans-serif;
+}
+@media only screen and (min-width: 48em) {
+  .quote-content {
+    font-size: 1.125rem;
+  }
 }
 @media only screen and (min-width: 100em) {
   .quote-content {
@@ -20410,7 +20521,7 @@ a[href="https://yourhustler.com"]:hover {
 }
 
 .steps {
-  background-image: url("../assets/images/bowl-dish-with-vegetables.png");
+  background-image: url("../assets/images/bowl-dish-with-vegetables.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -20505,7 +20616,7 @@ a[href="https://yourhustler.com"]:hover {
 }
 
 .why-choose {
-  background-image: url("../assets/images/women-posing-together.png");
+  background-image: url("../assets/images/women-posing-together.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -20588,7 +20699,7 @@ a[href="https://yourhustler.com"]:hover {
 }
 
 .location__card {
-  padding-bottom: 5em;
+  padding-bottom: 4em;
   border-bottom: 1px solid #707070;
 }
 @media only screen and (min-width: 36em) {

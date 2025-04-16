@@ -172,7 +172,7 @@ function bannerContentsAnimation(){
   const bannerImage = document.querySelectorAll(".animate-hero-image");
   bannerImage && tl.from(bannerImage, {
     opacity: 0,
-    x: -30,
+    y: 30,
     duration: 1,
     delay: -2,
     stagger:0.1,
@@ -381,18 +381,17 @@ accordionBtns && accordionBtns.forEach((accordion) => {
 //======== ACCORDION TOGGLE END ========
 
 //======= COUNTER START  ===========
-function visible(partial) {
-  let $t = partial,
-    $w = jQuery(window),
+function visible($el) {
+  let $w = jQuery(window),
     viewTop = $w.scrollTop(),
     viewBottom = viewTop + $w.height(),
-    _top = $t.offset().top,
-    _bottom = _top + $t.height(),
-    compareTop = partial === true ? _bottom : _top,
-    compareBottom = partial === true ? _top : _bottom;
+    elTop = $el.offset().top,
+    elBottom = elTop + $el.height();
+    compareTop = $el === true ? elBottom : elTop,
+    compareBottom = $el === true ? elTop : elBottom;
 
   return (
-    compareBottom <= viewBottom && compareTop >= viewTop && $t.is(":visible")
+    compareBottom <= viewBottom && compareTop >= viewTop && $el.is(":visible")
   );
 }
 function updateCounter(){
@@ -400,28 +399,26 @@ function updateCounter(){
   if (myCounter && visible($(".counter-value"))){
     if ($(".counter-value").hasClass("counter-loaded")) return;
     $(".counter-value").addClass("counter-loaded");
-    $(".counter-value").each(function () {
+    $(".counter-value").each(function(){
       if ($(this).html() == Math.floor($(this).html())) {
         var $this = $(this);
+        var targetValue = parseFloat($this.text()); // Convert text to number
+
         jQuery({ Counter: 0 }).animate(
-          { Counter: $this.text() },
+          { Counter: targetValue },
           {
             duration: 1500,
             easing: "swing",
-            step: function () {
+            step: function(){
+              let formatedNumber;
+              if(Number.isInteger(targetValue)){
+                formatedNumber = Math.trunc(this.Counter) + 1;
+              }
+              else{
+                formatedNumber = ((this.Counter * 10) / 10).toFixed(1);
+              }
+              // $this.text(formatedNumber.toLocaleString("en-IN"));
               $this.text(Math.trunc(this.Counter) + 1);
-            },
-          }
-        );
-      } else {
-        var $this = $(this);
-        jQuery({ Counter: 0 }).animate(
-          { Counter: $this.text() },
-          {
-            duration: 1500,
-            easing: "swing",
-            step: function () {
-              $this.text(((this.Counter * 10) / 10).toFixed(1));
             },
           }
         );

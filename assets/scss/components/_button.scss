@@ -9,7 +9,7 @@
     border:none;
     background-color: transparent;
     padding:em(16) em(26);
-    font-size: rem(16);
+    font-size: rem(14);
     font-family: $ff-tertiary;
     @include radius(28px);
     color:$clr-white;
@@ -23,6 +23,9 @@
     }
     @include breakpoint-lg{
         padding:em(16) em(36);
+    }
+    @include breakpoint-xl{
+        font-size: rem(16);
     }
 }
 

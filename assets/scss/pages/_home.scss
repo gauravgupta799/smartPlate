@@ -7,35 +7,73 @@
 $height: calc(100vh - 150px);
 
 .hero{
-    &--home{
-        background-image: url("../assets/images/home-banner.png");
-        @include bg-cover;
-        height: $height;
-    }
-    &--about{
-        background-image: url("../assets/images/about-banner.png");
-        @include bg-cover;
-        height: $height;
-    }
-
     &__content-wrapper{
         display: flex;
         flex-direction: column;
         justify-content: center;
         height: $height;
     }
-
-    &--services{
-        background-image: url("../assets/images/services-banner.png");
+    &--home{
+        background-image: url("../assets/images/home-banner.webp");
         @include bg-cover;
         height: $height;
+    }
+    &--about{
+        background-image: url("../assets/images/about-banner.webp");
+        @include bg-cover;
+        height: $height;
+    }
+    &--services{
+        background-image: url("../assets/images/services-banner.webp");
+        @include bg-cover;
+        height: $height;
+    }
 
+    &--70-gen{
+        background-image: url("../assets/images/70-gen/70-gene-banner.webp");
+        @include bg-cover;
+        height: $height;
+    }
+    &--genetic-testing{
+        background-image: url("../assets/images/genetic-testing/Genetic-testing-banner.webp");
+        @include bg-cover;
+        height: $height;
+    }
+    &--micro-nutrition{
+        background-image: url("../assets/images/micro-nutrition/micronutrient-testing-banner.webp");
+        @include bg-cover;
+        height: $height;
+    }
+    &--body-Composition{
+        background-image: url("../assets/images/body-composition/body-composition-banner.webp");
+        @include bg-cover;
+        height: $height;
+    }
+    &--weight-loss{
+        background-image: url("../assets/images/weight-loss/weight-loss-banner.webp");
+        @include bg-cover;
+        height: $height;
+    }
+    &--getControl{
+        background-image: url("../assets/images/get-control/get-control-banner.webp");
+        @include bg-cover;
+        height: $height;
+    }
+    &--referYourPatients{
+        background-image: url("../assets/images/refer-your-patient-banner.webp");
+        @include bg-cover;
+        height: $height;
     }
 
     &--contact{
-        background-image: url("../assets/images/contact-banner.png");
+        background-image: url("../assets/images/contact-banner.webp");
         @include bg-cover;
         height: 70vh;
+    }
+    &--loveYourHeart{
+        background-image: url("../assets/images/love-your-heart-banner.webp");
+        @include bg-cover;
+        height: $height;
     }
 }
 
@@ -54,17 +92,22 @@ $height: calc(100vh - 150px);
 
 .transforming{
     &__bottom-container{
-        background-image: url("../assets/images/bowl-dish-with-vegetables.png");
+        background-image: url("../assets/images/bowl-dish-with-vegetables.webp");
         @include bg-cover;
     }
 }
 
 .health-improvision{
-    background-image: url("../assets/images/women-posing-together.png");
+    background-image: url("../assets/images/women-posing-together.webp");
     @include bg-cover;
     &__body{
         max-width: 25rem;
     }
+}
+
+.convenient-nutrition{
+    background-image: url("../assets/images/convenient-nutrition.webp");
+    @include bg-cover;
 }
 
 .testing{
@@ -109,12 +152,12 @@ $height: calc(100vh - 150px);
 }
 
 .cta{
-    background-image: url("../assets/images/cta-img.png");
+    background-image: url("../assets/images/cta-img.webp");
     @include bg-cover;
 }
 
 .strategies{
-    background-image: url("../assets/images/woman-diet-concept.png");
+    background-image: url("../assets/images/woman-diet-concept.webp");
     @include bg-cover;
 }
 
@@ -216,9 +259,12 @@ $height: calc(100vh - 150px);
 }
 
 .quote-content{
-    font-size: rem(18);
+    font-size: rem(16);
     line-height: 1.2;
     font-family: $ff-primary;
+    @include breakpoint-md{
+        font-size: rem(18);
+    }
     @include breakpoint-xxl{
         font-size: rem(20);
     }
